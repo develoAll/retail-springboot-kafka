@@ -15,7 +15,7 @@ public class Task {
 	public void shedulerSendXml() {
 		System.out.println("Se enviara un mensaje");
 		
-		kafkaTemplate.send("example-topic","Se envio pe bateria");
+		kafkaTemplate.send("example-topic","guardando data");
 		
 	}
 	

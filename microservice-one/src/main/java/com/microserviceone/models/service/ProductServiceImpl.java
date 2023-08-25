@@ -10,12 +10,12 @@ import com.microserviceone.models.repository.ProductRepository;
 public class ProductServiceImpl implements ProductService{
 	
 	@Autowired
-	private ProductRepository ProductRepository;
+	private ProductRepository productRepository;
 	
 	
 	@Override
 	public void setProduct(Product product) {
-		ProductRepository.save(product);
+		productRepository.save(product);
 	}
 
 }
