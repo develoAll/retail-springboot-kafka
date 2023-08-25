@@ -19,4 +19,12 @@ public class Task {
 		
 	}
 	
+	// @Autowired
+    // private XMLToJsonService xmlToJsonService;
+
+    // @GetMapping("/convert")
+    // public String convertXMLToJson(@RequestParam String xmlFilePath) throws IOException {
+        // String xmlContent = XMLFileReader.readXML(xmlFilePath);
+        // return xmlToJsonService.convertXMLToJson(xmlContent);
+    // }
 }
