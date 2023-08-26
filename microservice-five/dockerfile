@@ -1,0 +1,4 @@
+FROM openjdk:17-jdk-alpine
+WORKDIR /app
+COPY target/microservice-five.jar /app/microservice-five.jar
+CMD ["java", "-jar", "microservice-five.jar"]
