@@ -28,8 +28,8 @@ public class Task {
 		
 		try {
 			resultJson = xmlToJsonService.convertXmlToJson();
-			// kafkaTemplate.send("example-topic",resultJson);
-			System.out.println(resultJson);
+			kafkaTemplate.send("example-topic",resultJson);
+			// System.out.println(resultJson);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

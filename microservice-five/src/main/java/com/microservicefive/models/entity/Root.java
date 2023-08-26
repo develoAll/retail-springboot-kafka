@@ -1,7 +1,6 @@
 package com.microservicefive.models.entity;
 
 import java.util.List;
-import java.util.Map;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
@@ -9,6 +8,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 @JacksonXmlRootElement(localName = "root")
 public class Root {
+	
     @JacksonXmlProperty(localName = "person")
     private Person person;
     
@@ -34,7 +34,7 @@ public class Root {
     @JacksonXmlElementWrapper(useWrapping = false)
     private List<String> elts;
     
-    // private Map<String, Name> dynamicElement;
+    // private Map<String, AgeContainer> dynamicElement;
 
     
 	public Person getPerson() {
@@ -100,14 +100,13 @@ public class Root {
 	public void setElts(List<String> elts) {
 		this.elts = elts;
 	}
- /*
-	public Map<String, Name> getDynamicElement() {
+	/*
+	public Map<String, AgeContainer> getDynamicElement() {
 		return dynamicElement;
 	}
 
-	public void setDynamicElement(Map<String, Name> dynamicElement) {
+	public void setDynamicElement(Map<String, AgeContainer> dynamicElement) {
 		this.dynamicElement = dynamicElement;
-	}
-*/
+	}*/
     
 }

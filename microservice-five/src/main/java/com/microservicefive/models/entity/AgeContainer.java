@@ -1,6 +1,6 @@
 package com.microservicefive.models.entity;
 
-public class Name {
+public class AgeContainer {
     private int age;
 
 	public int getAge() {
