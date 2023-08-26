@@ -10,12 +10,12 @@ import com.microservicefive.models.entity.Root;
 @Service
 public class XmlToJsonService {
 
-    public String convertXmlToJson() throws Exception {
-    	
+    public String convertXmlToJson(int doc) throws Exception {
+    	    	
     	XmlMapper xmlMapper = new XmlMapper();
         ObjectMapper jsonMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
 
-    	ClassPathResource resource = new ClassPathResource("files/myXMLFile0.xml");
+    	ClassPathResource resource = new ClassPathResource("files/myXMLFile"+doc+".xml");
     	Root root = xmlMapper.readValue(resource.getInputStream(), Root.class);
 
         //Map<String, AgeContainer> dynamicElement = new HashMap<>();

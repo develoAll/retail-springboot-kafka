@@ -15,23 +15,27 @@ public class Task {
 	
 	private final XmlToJsonService xmlToJsonService;
 
-    @Autowired
     public Task(XmlToJsonService xmlToJsonService) {
         this.xmlToJsonService = xmlToJsonService;
     }
 	
 	private String resultJson;
+	private int numInitializar = 0;
+	
+	String directorio = "ruta/del/directorio";
 	
 	@Scheduled(cron = "${cron.expression}")
 	public void shedulerSendXml() {
 		System.out.println("Se enviara un mensaje");
 		
 		try {
+			
+			numInitializar++;
 			System.out.println("*************************************************************************************");
-			System.out.println("******************************MICROSERVICO*************************************");
-			resultJson = xmlToJsonService.convertXmlToJson();
+			resultJson = xmlToJsonService.convertXmlToJson(numInitializar);
+			
 			kafkaTemplate.send("example-topic",resultJson);
-			// System.out.println(resultJson);
+			System.out.println(resultJson);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
