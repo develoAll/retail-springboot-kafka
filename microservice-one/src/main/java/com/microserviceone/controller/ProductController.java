@@ -43,7 +43,7 @@ public class ProductController {
 			Person.setProduct(sendProduct);
 			
 			productService.setPersonProduct(Person);
-		
+		/*
 	        System.out.println("firstName: " + miObjeto.getPerson().getFirstName());
 	        System.out.println("lastName: " + miObjeto.getPerson().getLastName());
 	        System.out.println("city: " + miObjeto.getPerson().getCity());
@@ -59,7 +59,7 @@ public class ProductController {
 	        System.out.println("date: " + miObjeto.getDate());
 	        System.out.println("regEx: " + miObjeto.getRegEx());
 	        System.out.println("enumValue: " + miObjeto.getEnumValue());
-	       System.out.println("elts: " + miObjeto.getElts());
+	       System.out.println("elts: " + miObjeto.getElts());*/
 	        
 	        
 		}catch (IOException e) {

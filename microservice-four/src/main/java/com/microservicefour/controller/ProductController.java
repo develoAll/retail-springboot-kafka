@@ -18,6 +18,7 @@ public class ProductController {
 	
 	@GetMapping("/api/listar")
 	public List<Product> listar(){
+		System.out.println("entro aca");
 		return productService.getAllProduct();
 	}
 

@@ -1,11 +1,15 @@
 package com.microservicefour.models.entity;
 
-import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,28 +18,45 @@ public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name = "idproduct")
+	private Long idProduct;
 	
-	private LocalDate date_create;
-	private int random;
-	private double random_float;
-	private boolean bool;
-	private String regex;
-	private String enun;
-	private String elt;
-	private int age;
+	@OneToOne
+	@JoinColumn(name = "id_persona")
+	private Person Person;
 	
-	public Long getId() {
-		return id;
+	private Date fechaCreacion;
+    private int random;
+    private float randomFloat;
+    private boolean bool;
+    private String date;
+    private String regEx;
+    private String enumValue;
+    private List<String> elts;
+    
+	public Date getFechaCreacion() {
+		return fechaCreacion;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
 	}
-	public LocalDate getDate_create() {
-		return date_create;
+	public Person getPerson() {
+		return Person;
 	}
-	public void setDate_create(LocalDate date_create) {
-		this.date_create = date_create;
+	public void setPerson(Person persona) {
+		Person = persona;
+	}
+	public List<String> getElts() {
+		return elts;
+	}
+	public void setElts(List<String> elts) {
+		this.elts = elts;
+	}
+	public Long getIdProduct() {
+		return idProduct;
+	}
+	public void setIdProduct(Long idProduct) {
+		this.idProduct = idProduct;
 	}
 	public int getRandom() {
 		return random;
@@ -43,58 +64,51 @@ public class Product {
 	public void setRandom(int random) {
 		this.random = random;
 	}
-	public double getRandom_float() {
-		return random_float;
+	public float getRandomFloat() {
+		return randomFloat;
 	}
-	public void setRandom_float(double random_float) {
-		this.random_float = random_float;
+	public void setRandomFloat(float randomFloat) {
+		this.randomFloat = randomFloat;
 	}
-	public boolean isBool() {
+	public boolean getBool() {
 		return bool;
 	}
 	public void setBool(boolean bool) {
 		this.bool = bool;
 	}
-	public String getRegex() {
-		return regex;
+	public String getDate() {
+		return date;
 	}
-	public void setRegex(String regex) {
-		this.regex = regex;
+	public void setDate(String date) {
+		this.date = date;
 	}
-	public String getEnun() {
-		return enun;
+	public String getRegEx() {
+		return regEx;
 	}
-	public void setEnun(String enun) {
-		this.enun = enun;
+	public void setRegEx(String regEx) {
+		this.regEx = regEx;
 	}
-	public String getElt() {
-		return elt;
+	public String getEnumValue() {
+		return enumValue;
 	}
-	public void setElt(String elt) {
-		this.elt = elt;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setEnumValue(String enumValue) {
+		this.enumValue = enumValue;
 	}
 	
+	public Product(Person Person, Date fechaCreacion, int random, float randomFloat, boolean bool, String date,
+			String regEx, String enumValue, List<String> elts) {
+		this.Person = Person;
+		this.fechaCreacion = fechaCreacion;
+		this.random = random;
+		this.randomFloat = randomFloat;
+		this.bool = bool;
+		this.date = date;
+		this.regEx = regEx;
+		this.enumValue = enumValue;
+		this.elts = elts;
+	}
 	public Product() {
 	}
-
 	
-	public Product(Long id, LocalDate date_create, int random, double random_float, boolean bool, String regex,
-			String enun, String elt, int age) {
-		this.id = id;
-		this.date_create = date_create;
-		this.random = random;
-		this.random_float = random_float;
-		this.bool = bool;
-		this.regex = regex;
-		this.enun = enun;
-		this.elt = elt;
-		this.age = age;
-	}
-
+	
 }
