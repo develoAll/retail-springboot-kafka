@@ -27,6 +27,8 @@ public class Task {
 		System.out.println("Se enviara un mensaje");
 		
 		try {
+			System.out.println("*************************************************************************************");
+			System.out.println("******************************MICROSERVICO*************************************");
 			resultJson = xmlToJsonService.convertXmlToJson();
 			kafkaTemplate.send("example-topic",resultJson);
 			// System.out.println(resultJson);
