@@ -1,9 +1,9 @@
 package com.microserviceone.models.service;
 
-import com.microserviceone.models.entity.Product;
+import com.microserviceone.models.entity.Person;
 
 public interface ProductService {
 
-	public void setProduct(Product product);
+	public void setPersonProduct(Person person);
 	
 }
