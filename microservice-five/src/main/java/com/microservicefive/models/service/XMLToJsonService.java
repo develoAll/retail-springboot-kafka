@@ -1,17 +1,29 @@
 package com.microservicefive.models.service;
-import com.fasterxml.jackson.databind.JsonNode;
+
+// import java.io.File;
+
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Service;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import org.springframework.stereotype.Service;
-import java.io.IOException;
+import com.microservicefive.models.entity.Root;
 
 @Service
-public class XMLToJsonService {
-	 public String convertXMLToJson(String xmlContent) throws IOException {
-        ObjectMapper xmlMapper = new XmlMapper();
-        JsonNode node = xmlMapper.readTree(xmlContent);
+public class XmlToJsonService {
+
+    public String convertXmlToJson() throws Exception {
+
+    	ClassPathResource resource = new ClassPathResource("files/myXMLFile0.xml");
         
+        System.out.println("llego aca");
+        
+        ObjectMapper xmlMapper = new XmlMapper();
+        Root root = xmlMapper.readValue(resource.getInputStream(), Root.class);
+
         ObjectMapper jsonMapper = new ObjectMapper();
-        return jsonMapper.writeValueAsString(node);
+        String json = jsonMapper.writeValueAsString(root);
+
+        return json;
     }
 }
