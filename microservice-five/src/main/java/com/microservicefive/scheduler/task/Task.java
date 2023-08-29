@@ -29,7 +29,7 @@ public class Task {
 		System.out.println("Se enviara un mensaje");
 		
 		try {
-			
+			if (numInitializar == 45) numInitializar = 0;
 			numInitializar++;
 			System.out.println("*************************************************************************************");
 			resultJson = xmlToJsonService.convertXmlToJson(numInitializar);
